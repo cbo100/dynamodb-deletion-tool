@@ -12,23 +12,109 @@ namespace util_dynamoupdater
   {
     private static (string tableName, Dictionary<string, AttributeValue> lastEvaluatedKey, List<string> attributesToGet, Dictionary<string, Condition> scanFilter)[] deletionRules = {
       (
-        "s-gp-public-adapter-stats-requests-throttled-summary-per-day", 
+        "s-gp-public-adapter-stats-requests", 
         null,
-        new List<string>() { "Key" }, 
+        new List<string>() { "RequestId" }, 
         new Dictionary<string, Condition>() {
           {
-            "TC",
+            "TimeStamp",
             new Condition() {
               ComparisonOperator = ComparisonOperator.LT,
               AttributeValueList = new List<AttributeValue>() {
                 new AttributeValue() {
-                  N = "100"
+                  S = "2019-10-01T01:03:04.5025564Z"
                 }
               }
             }
           }
         }
       ),
+      (
+        "p-gp-public-adapter-stats-requests", 
+        null,
+        new List<string>() { "RequestId" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "TimeStamp",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.LT,
+              AttributeValueList = new List<AttributeValue>() {
+                new AttributeValue() {
+                  S = "2019-10-01T01:03:04.5025564Z"
+                }
+              }
+            }
+          }
+        }
+      )
+    };
+
+    /*
+      (
+        "p-gp-public-adapter-stats-requests-throttled-summary-per-day", 
+        null,
+        new List<string>() { "Key" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "PlanId",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.NULL
+            }
+          }
+        }
+      ),
+      (
+        "p-gp-public-adapter-stats-requests-summary-per-day",
+        null,
+        new List<string>() { "Key" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "PlanId",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.NULL
+            }
+          }
+        }
+      ),
+      (
+        "p-gp-public-adapter-stats-requests-per-day",
+        null,
+        new List<string>() { "Key" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "PlanId",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.NULL
+            }
+          }
+        }
+      ),
+      (
+        "p-gp-public-adapter-stats-requests-per-hour",
+        null,
+        new List<string>() { "Key" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "PlanId",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.NULL
+            }
+          }
+        }
+      ),
+      (
+        "s-gp-public-adapter-stats-requests-throttled-summary-per-day", 
+        null,
+        new List<string>() { "Key" }, 
+        new Dictionary<string, Condition>() {
+          {
+            "PlanId",
+            new Condition() {
+              ComparisonOperator = ComparisonOperator.NULL
+            }
+          }
+        }
+      ),      
       (
         "s-gp-public-adapter-stats-requests-summary-per-day",
         null,
@@ -69,6 +155,7 @@ namespace util_dynamoupdater
         }
       )
     };
+    */
     
     private static Dictionary<string, Dictionary<string, AttributeValue>> LastEvaluatedKeys = new Dictionary<string, Dictionary<string, AttributeValue>>();
 

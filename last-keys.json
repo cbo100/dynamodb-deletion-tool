@@ -1,21 +1,12 @@
 {
   "s-gp-public-adapter-stats-requests-summary-per-day": {},
-  "s-gp-public-adapter-stats-requests-per-day": {
-    "Key": {
-      "BOOL": false,
-      "IsBOOLSet": false,
-      "BS": [],
-      "L": [],
-      "IsLSet": false,
-      "M": {},
-      "IsMSet": false,
-      "NS": [],
-      "S": "app_85610c4086a7427ea429fed239c82a23 | 2018-08-01 | Schools_Get | 200",
-      "SS": []
-    }
-  },
+  "s-gp-public-adapter-stats-requests-per-day": {},
   "s-gp-public-adapter-stats-requests-throttled-summary-per-day": {},
-  "s-gp-public-adapter-stats-requests-per-hour": {
+  "s-gp-public-adapter-stats-requests-per-hour": {},
+  "p-gp-public-adapter-stats-requests-throttled-summary-per-day": {},
+  "p-gp-public-adapter-stats-requests-per-day": {},
+  "p-gp-public-adapter-stats-requests-summary-per-day": {},
+  "p-gp-public-adapter-stats-requests-per-hour": {
     "Key": {
       "BOOL": false,
       "IsBOOLSet": false,
@@ -25,7 +16,7 @@
       "M": {},
       "IsMSet": false,
       "NS": [],
-      "S": "app_93d14569d7d34b108fa874903a5f98fa | 2019-06-20 05 | pln_al_free | ListingLocations_Search | 200",
+      "S": "app_2b0ee16951d5490ba030f4f1ed7f9fb6 | 2019-10-29 | pln_lm_standard | Listings_Get | 200",
       "SS": []
     }
   }

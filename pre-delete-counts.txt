@@ -1,0 +1,5 @@
+p-gp-public-adapter-stats-requests-throttled-summary-per-day: 17,034 - 6,098
+p-gp-public-adapter-stats-requests-summary-per-day: 69,096 - 22,759
+p-gp-public-adapter-stats-requests-per-hour: 1,000,536 - 
+p-gp-public-adapter-stats-requests-per-day: 179,388 - 55,004
+p-gp-public-adapter-stats-requests: 132,000,000
