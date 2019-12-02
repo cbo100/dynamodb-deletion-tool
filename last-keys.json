@@ -16,7 +16,24 @@
       "M": {},
       "IsMSet": false,
       "NS": [],
+      "NULL": false,
       "S": "app_2b0ee16951d5490ba030f4f1ed7f9fb6 | 2019-10-29 | pln_lm_standard | Listings_Get | 200",
+      "SS": []
+    }
+  },
+  "s-gp-public-adapter-stats-requests": {},
+  "p-gp-public-adapter-stats-requests": {
+    "RequestId": {
+      "BOOL": false,
+      "IsBOOLSet": false,
+      "BS": [],
+      "L": [],
+      "IsLSet": false,
+      "M": {},
+      "IsMSet": false,
+      "NS": [],
+      "NULL": false,
+      "S": "26ed15cf-313f-4bd5-9ee5-b3450e9ced06",
       "SS": []
     }
   }

@@ -221,8 +221,9 @@ namespace util_dynamoupdater
         });
       
       //Console.WriteLine($"{rule.tableName} Scanned. Returns {scanResult?.Items?.Count}.");
-      if (scanResult?.LastEvaluatedKey.Count > 0)
+      if (scanResult?.LastEvaluatedKey.Count > 0) {
         Console.WriteLine($"{DateTime.UtcNow.ToString("O")} - {rule.tableName} - Last Key: '{scanResult?.LastEvaluatedKey?.First().Key}':'{scanResult?.LastEvaluatedKey?.First().Value.S}'");
+      }
       // deleting records if any...
       if (scanResult?.Items?.Count > 0) {
         await connection.BatchWriteItemAsync(new Dictionary<string, List<WriteRequest>>() {
