@@ -216,7 +216,7 @@ namespace util_dynamoupdater
           TableName = rule.tableName,
           AttributesToGet = rule.attributesToGet,
           ScanFilter = rule.scanFilter,
-          Limit = 25,
+          Limit = 250,
           ExclusiveStartKey = lastEvaluatedKey
         });
       
@@ -224,16 +224,21 @@ namespace util_dynamoupdater
       if (scanResult?.LastEvaluatedKey.Count > 0) {
         Console.WriteLine($"{DateTime.UtcNow.ToString("O")} - {rule.tableName} - Last Key: '{scanResult?.LastEvaluatedKey?.First().Key}':'{scanResult?.LastEvaluatedKey?.First().Value.S}'");
       }
-      // deleting records if any...
+      // deleting records if any in batches of 25...
       if (scanResult?.Items?.Count > 0) {
-        await connection.BatchWriteItemAsync(new Dictionary<string, List<WriteRequest>>() {
-          {
-            rule.tableName,
-            scanResult.Items.Select(x => new WriteRequest(new DeleteRequest() {
-              Key = x
-            })).ToList()
-          }
-        });
+        var deletedItems = 0;
+        while(scanResult.Items.Count - deletedItems > 0) {
+          var itemsToDelete = scanResult.Items.Skip(deletedItems).Take(Math.Min(25, scanResult.Items.Count - deletedItems));
+          deletedItems+=25;
+          await connection.BatchWriteItemAsync(new Dictionary<string, List<WriteRequest>>() {
+            {
+              rule.tableName,
+              itemsToDelete.Select(x => new WriteRequest(new DeleteRequest() {
+                Key = x
+              })).ToList()
+            }
+          });
+        }
       }
       rule.lastEvaluatedKey = scanResult.LastEvaluatedKey;
       lock(LastEvaluatedKeys){
